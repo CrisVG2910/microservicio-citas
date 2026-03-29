@@ -43,7 +43,7 @@ public class CitaController {
             @PathVariable("rut") String rut,
             @PathVariable("nombre") String nombre) {
 
-        // VALIDACIÓN: Comprobar si ya existe una cita programada en esa fecha y hora
+        // Comprobar si ya existe una cita programada en esa fecha y hora
         for (CitaMedica cita : citas) {
             if (cita.getFecha().equals(fecha) && cita.getHora().equals(hora) && !cita.getEstado().equals("Cancelada")) {
                 return "{\"error\": \"El horario en la fecha " + fecha + " a las " + hora + " ya se encuentra ocupado.\"}";
